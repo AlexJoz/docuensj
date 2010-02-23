@@ -152,4 +152,17 @@ public class DRect extends DGraphicObject {
 		
 		return isOverlaped ;
 	}
+	@Override
+	public boolean equals(Object o) {
+	  boolean equals = false ;
+
+	  if((o != null) && (o instanceof DRect)) {
+        DRect r = (DRect) o ;
+        if(r.lt() == this.p1 && r.rb() == this.p2) {
+          equals = true ;	
+        }
+	  }
+	  
+	  return equals ;
+	}
 }

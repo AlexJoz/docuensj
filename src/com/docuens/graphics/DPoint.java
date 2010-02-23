@@ -77,4 +77,18 @@ public class DPoint extends DGraphicObject {
 		this.x = p.x() ;
 		this.y = p.y() ;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+	  boolean equals = false ;
+	  if((o != null) && (o instanceof DPoint)) {
+		DPoint p = (DPoint) o ;
+		
+	    if(this.x == p.x() && this.y == p.y()) {
+	      equals = true ;	
+	    }
+	  }
+	  
+	  return equals ;
+	}
 }

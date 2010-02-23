@@ -15,6 +15,7 @@ public class DBitmapProperty extends DNamedObject {
 	private int height ;
 	private int bpp ;
 	private int bpl ;
+	private int xres, yres ;
 	
 	public static final double BYTE_SIZE = 8.0 ; 
 	
@@ -26,21 +27,23 @@ public class DBitmapProperty extends DNamedObject {
 		super(id) ;
 	}
 	
-	public DBitmapProperty(int width, int height, int bpp) {
+	public DBitmapProperty(int width, int height, int bpp, int xres, int yres) {
 		super() ;
-		set(width, height, bpp) ;
+		set(width, height, bpp, xres, yres) ;
 	}
 	
-	public DBitmapProperty(long id, int width, int height, int bpp) {
+	public DBitmapProperty(long id, int width, int height, int bpp, int xres, int yres) {
 		super(id) ;
-		set(width, height, bpp) ;
+		set(width, height, bpp, xres, yres) ;
 	}
 
-	public void set(int width, int height, int bpp) {
+	public void set(int width, int height, int bpp, int xres, int yres) {
 		this.width = width ;
 		this.height = height ;
 		this.bpp = bpp ;
 		this.bpl = getBPL(bpp) ;
+		this.xres = xres ;
+		this.yres = yres ;
 	}
 	
 	public void setWidth(int width) {
@@ -74,4 +77,20 @@ public class DBitmapProperty extends DNamedObject {
 	public int getBPL(int bpp) {
 		return (int) Math.ceil((double)bpp / BYTE_SIZE) ;
 	}	
+	
+	public void setXRes(int xres) {
+		this.xres = xres ;
+	}
+	
+	public int getXRes() {
+		return this.xres ;
+	}
+	
+	public void setYRes(int yres) {
+		this.yres = yres ;
+	}
+	
+	public int getYRes() {
+		return this.yres ;
+	}
 }

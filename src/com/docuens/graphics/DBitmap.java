@@ -15,4 +15,12 @@ public class DBitmap extends DGraphicObject {
 		super(id) ;
 		property = new DBitmapProperty() ;
 	}
+	
+	public void set(DBitmapProperty property) {
+		this.property = property ;
+	}
+	
+	public void set(int width, int height, int bpp, int xres, int yres) {
+		property.set(width, height, bpp, xres, yres) ;
+	}
 }

@@ -1,5 +1,13 @@
 package com.docuens.graphics;
 
+
+/**
+ * 
+ * DBWBitmap class, derived from DBitmap class.
+ * 
+ * @author chasc
+ *
+ */
 public class DBWBitmap extends DBitmap {
 	protected byte[][] data ; 
 	
@@ -11,35 +19,19 @@ public class DBWBitmap extends DBitmap {
 		super(id) ;
 	}
 	
-	public DBWBitmap(int width, int height) {
+	public DBWBitmap(int width, int height, int xres, int yres) {
 		super() ;
+		set(width, height, 1, xres, yres) ;
 		allocate(width, height) ;
 	}
 	
-	public DBWBitmap(long id, int width, int height) {
+	public DBWBitmap(long id, int width, int height, int xres, int yres) {
 		super(id) ;
+		property.set(width, height, 1, xres, yres) ;
 		allocate(width, height) ;
 	}
 
 	public void allocate(int width, int height) {
-		property.set(width, height, 1) ;
 		data = new byte[height][width] ;
-	}
-	
-	public static void main(String[] args) {
-		DBWBitmap bitmap = new DBWBitmap() ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		bitmap.allocate(1800, 2400) ;
-		
-		
 	}
 }
